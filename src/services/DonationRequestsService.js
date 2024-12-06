@@ -1,12 +1,12 @@
-const { Pool } = require('pg');
 const InvariantError = require('../exceptions/InvariantError');
 const NotFoundError = require('../exceptions/NotFoundError');
 const AuthorizationError = require('../exceptions/AuthorizationError');
 
 class DonationRequestsService {
-  constructor() {
-    this._pool = new Pool();
+  constructor(pool) {
+    this._pool = pool;
   }
+
 
   /**
    * Tambahkan permohonan donasi baru

@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
-const { Pool } = require('pg');
 const bcrypt = require('bcryptjs');
 const InvariantError = require('../exceptions/InvariantError');
 const AuthenticationError = require('../exceptions/AuthenticationError');
 const NotFoundError = require('../exceptions/NotFoundError');
 
 class UsersService {
-  constructor() {
-    this._pool = new Pool();
+  constructor(pool) {
+    this._pool = pool;
   }
+
 
   /**
    * Menambahkan pengguna baru

@@ -1,11 +1,11 @@
-const { Pool } = require('pg');
 const InvariantError = require('../exceptions/InvariantError');
 const NotFoundError = require('../exceptions/NotFoundError');
 
 class NotificationsService {
-  constructor() {
-    this._pool = new Pool();
+  constructor(pool) {
+    this._pool = pool;
   }
+
 
   /**
    * Mendapatkan daftar notifikasi berdasarkan userId

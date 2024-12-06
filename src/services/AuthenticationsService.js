@@ -1,10 +1,10 @@
-const { Pool } = require('pg');
 const InvariantError = require('../exceptions/InvariantError');
 
 class AuthenticationsService {
-  constructor() {
-    this._pool = new Pool();
+  constructor(pool) {
+    this._pool = pool;
   }
+
 
   /**
  * Menambahkan refresh token dan access token untuk user

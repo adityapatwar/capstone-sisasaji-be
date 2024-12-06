@@ -1,15 +1,15 @@
 /* eslint-disable prefer-const */
 /* eslint-disable camelcase */
-const { Pool } = require('pg');
 const InvariantError = require('../exceptions/InvariantError');
 const NotFoundError = require('../exceptions/NotFoundError');
 const AuthorizationError = require('../exceptions/AuthorizationError');
 const AuthenticationError = require('../exceptions/AuthenticationError');
 
 class DonationsService {
-  constructor() {
-    this._pool = new Pool();
+  constructor(pool) {
+    this._pool = pool;
   }
+
 
   /**
    * Tambahkan donasi baru
