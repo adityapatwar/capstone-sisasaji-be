@@ -4,7 +4,7 @@ const routes = (handler) => [
     path: '/login',
     handler: handler.postAuthenticationHandler,
     options: {
-      auth: false, // Tidak memerlukan autentikasi
+      auth: false,
     },
   },
   {
@@ -12,7 +12,7 @@ const routes = (handler) => [
     path: '/token',
     handler: handler.putAuthenticationHandler,
     options: {
-      auth: false, // Tidak memerlukan autentikasi
+      auth: false,
     },
   },
   {
@@ -20,7 +20,7 @@ const routes = (handler) => [
     path: '/logout',
     handler: handler.deleteAuthenticationHandler,
     options: {
-      auth: 'jwt', // Memerlukan autentikasi
+      auth: 'jwt',
     },
   },
 ];
