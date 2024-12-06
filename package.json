@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "lint": "eslint ./"
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "lint": "eslint ./src",
+    "migrate": "node-pg-migrate",
+    "migrate-create": "node-pg-migrate create"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +18,17 @@
     "eslint-config-dicodingacademy": "^0.9.4",
     "globals": "^15.13.0",
     "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.12",
+    "@hapi/jwt": "^3.2.0",
+    "auto-bind": "^4.0.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "nanoid": "^5.0.9",
+    "node-pg-migrate": "^7.8.0",
+    "pg": "^8.13.1"
   }
 }
