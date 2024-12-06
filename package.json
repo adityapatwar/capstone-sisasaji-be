@@ -6,28 +6,27 @@
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
     "lint": "eslint ./src",
-    "migrate": "node-pg-migrate",
-    "build": "webpack --config webpack.config.js",
+    "migrate": "node-pg-migrate up",
     "migrate-create": "node-pg-migrate create"
   },
   "author": "",
   "license": "ISC",
   "description": "",
+  "engines": {
+    "node": ">=16.x"
+  },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
-    "@webpack-cli/init": "^1.1.3",
     "eslint": "^9.16.0",
     "eslint-config-dicodingacademy": "^0.9.4",
     "globals": "^15.13.0",
-    "nodemon": "^3.1.7",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^4.10.0"
+    "nodemon": "^3.1.7"
   },
   "dependencies": {
     "@hapi/hapi": "^21.3.12",
     "@hapi/jwt": "^3.2.0",
     "auto-bind": "^4.0.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.7",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
