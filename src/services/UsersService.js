@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const InvariantError = require('../exceptions/InvariantError');
 const AuthenticationError = require('../exceptions/AuthenticationError');
 const NotFoundError = require('../exceptions/NotFoundError');
