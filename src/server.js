@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const Hapi = require('@hapi/hapi');
 const Jwt = require('@hapi/jwt');
+const { Pool } = require('pg'); // Tambahkan ini untuk koneksi database
 
 // Import Plugin
 const users = require('./api/users');
@@ -26,12 +27,20 @@ const AuthenticationsValidator = require('./validator/authentications');
 const DonationsValidator = require('./validator/donations');
 const DonationRequestsValidator = require('./validator/donationRequests');
 
+// Konfigurasi Pool untuk PostgreSQL
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
 const init = async () => {
-  const usersService = new UsersService();
-  const authenticationsService = new AuthenticationsService();
-  const donationsService = new DonationsService();
-  const donationRequestsService = new DonationRequestsService();
-  const notificationsService = new NotificationsService();
+  const usersService = new UsersService(pool);
+  const authenticationsService = new AuthenticationsService(pool);
+  const donationsService = new DonationsService(pool);
+  const donationRequestsService = new DonationRequestsService(pool);
+  const notificationsService = new NotificationsService(pool);
 
   const server = Hapi.server({
     port: process.env.PORT || 5000,

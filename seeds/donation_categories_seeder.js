@@ -3,13 +3,10 @@ const { Pool } = require('pg');
 
 // Konfigurasi koneksi database
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || null,
-  host: process.env.DATABASE_URL ? null : process.env.PGHOST,
-  port: process.env.DATABASE_URL ? null : process.env.PGPORT,
-  database: process.env.DATABASE_URL ? null : process.env.PGDATABASE,
-  user: process.env.DATABASE_URL ? null : process.env.PGUSER,
-  password: process.env.DATABASE_URL ? null : process.env.PGPASSWORD,
-  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false, // Gunakan SSL jika DATABASE_URL tersedia
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Pastikan SSL diterima untuk Supabase
+  },
 });
 
 // Data kategori donasi
